@@ -24,7 +24,7 @@ class NRF52840Simulator:
         if random.random() < 0.1:  
             return random.uniform(0.5, 4.0) 
         else:
-            return random.gauss(self.base_accel, 0.1)  # At rest
+            return random.gauss(self.base_accel, 0.1)  # @ rest
     
     def generate_battery(self):
         self.battery_level -= random.uniform(0, 0.001)
@@ -56,6 +56,12 @@ class NRF52840Simulator:
             return {
                 'value': self.generate_rssi(),
                 'meta': {'sensor': 'rssi', 'unit': 'dBm'}
+            }
+        else:
+            # fallback for unknown sensor types
+            return {
+                'value': 0.0,
+                'meta': {'sensor': 'unknown', 'unit': ''}
             }
 
 class Command(BaseCommand):

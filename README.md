@@ -119,6 +119,9 @@ npm start
 3. Make changes and test
 4. Submit a pull request
 
-## License
+## Commands to run locally in development
 
-[Your License Here]
+(In seperate terminals, make sure to activate venv in backend)
+python3 manage.py simulate_data --sensor temperature --interval 1.0       #to set simulator running 
+python3 manage.py runserver                                               # run your local django server
+npm start                                                                 # runs react front end 
