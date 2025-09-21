@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export type LoginRespons = {
+export type LoginResponse = {
     access: string;
     refresh: string;
 };
@@ -26,23 +26,24 @@ export const setAuthToken = (token?: string) => {
     }
 };
 
+// Load saved token
 const saved = localStorage.getItem('access_token');
 if (saved) setAuthToken(saved);
 
-export const login = async (username: string, password: string): Promise<LoginRespons> => {
-    const res = await api.post<LoginRespons>('/auth/login', {username, password});
+export const login = async (username: string, password: string): Promise<LoginResponse> => {
+    const res = await api.post<LoginResponse>('/auth/login/', { username, password });
     setAuthToken(res.data.access);
     return res.data;
 };
 
 export const getCurrentUser = async (): Promise<User> => {
-    const res = await api.get<User>('/auth/user');
+    const res = await api.get<User>('/auth/user/');
     return res.data;
 };
 
 export const listSignals = async () => {
     const res = await api.get('/signals/');
-    return res.data as Array<{ id: number; name: string; sampling_rate: number; status: string}>;
+    return res.data as Array<{ id: number; name: string; sampling_rate: number; status: string }>;
 };
 
 export const processSignal = async (payload: unknown) => {

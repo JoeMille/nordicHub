@@ -8,12 +8,10 @@
     "isolatedModules": true,
     "noEmit": true,
 
-    // Fixes your errors:
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
 
-    // Recommended:
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "/home/user/GitRepos/nordicHub/backend/venv/bin/python",
+  "python.testing.pytestEnabled": true
+}
